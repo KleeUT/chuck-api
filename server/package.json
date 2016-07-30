@@ -1,0 +1,18 @@
+{
+  "name": "chuck-api",
+  "version": "1.0.0",
+  "description": "Chuck norris quotes",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha ./test",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "chuck"
+  ],
+  "author": "kleeut",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
