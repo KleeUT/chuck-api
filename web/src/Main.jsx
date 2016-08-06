@@ -32,10 +32,10 @@ var Blarg = class extends React.Component{
 
     render(){
         var style = {
-          mainPannel:{
-            background:"#EEE",
+          container:{
+            backgroundColor:"rgba(200,200,200,0.7)",
+            height:"100%",
             padding:"10em",
-            height:"100%"
           },
           smallText:{
             fontSize:"90%"
@@ -44,9 +44,11 @@ var Blarg = class extends React.Component{
             fontSize:"150%"
           }
         }
+
         return (
-        <div className="container" style={style.mainPannel}>
-          <div className="jumbotron">
+        <div className="mainPannel">
+          <div className="container" style={style.container}>
+            <div className="jumbotron">
                 <h1>Chuck Norris Facts</h1>
                 <p style={style.smallText}>Scientifically proven by FCNRI (Fictionaly Chuck Norris Research Institue)</p>
                 </div>
@@ -61,6 +63,7 @@ var Blarg = class extends React.Component{
                   <h1> {this.state.factId ? `Chuck Norris Fact No. ${this.state.factId}` : ""}</h1>
                   <p style={style.largeText}>{this.state.fact}</p>
                 </div>
+              </div>
         </div>
         )
     }

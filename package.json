@@ -1,0 +1,31 @@
+{
+  "name": "chuck-api",
+  "version": "1.0.0",
+  "description": "Chuck norris quotes",
+  "main": "server/server.js",
+  "scripts": {
+    "build": "gulp",
+    "test": "mocha ./server/test",
+    "prestart": "gulp",
+    "start": "node ./server/server.js"
+  },
+  "keywords": [
+    "chuck",
+    "norris"
+  ],
+  "author": "kleeut",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.10.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.13.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "webpack": "^1.13.1"
+  }
+}

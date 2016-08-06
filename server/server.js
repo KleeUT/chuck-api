@@ -3,16 +3,11 @@ var express = require('express');
 var app = express();
 var ChuckFacts = require('./ChuckFacts.js');
 var chuckFacts = new ChuckFacts();
+var Routes = require('./Routes.js');
 
-app.use(express.static('public'));
+app.use(express.static('server/public'));
 
-app.get('/', (request, response) => {
-    response.send("Hello World!");
-});
-
-app.get('/api/joke/random', (request, response) => {
-  response.send({fact:chuckFacts.randomQuote()});
-});
+Routes(app, chuckFacts);
 
 var port = process.env.port || 8080;
 app.listen(port, () => {
