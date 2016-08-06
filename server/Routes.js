@@ -5,9 +5,11 @@ module.exports = (app, chuckFacts) => {
   });
 
   app.get('/slack/api/joke/random', (request, response) => {
+    var fact = chuckFacts.randomQuote();
     response.send(
       {
-        "text": chuckFacts.randomQuote(),
+        "token": request.query.token,
+        "text": `Chuck fact #${fact.id}: ${fact.fact}`
       }
     );
   });
