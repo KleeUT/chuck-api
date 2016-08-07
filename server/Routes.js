@@ -13,4 +13,14 @@ module.exports = (app, chuckFacts) => {
       }
     );
   });
+
+  app.post('/slack/api/joke/random', (request, response) =>{
+    var fact = chuckFacts.randomQuote();
+    console.log(`${request.body.command} ${request.body.text}`)
+    response.send(
+      {
+        "token": request.body.token,
+        "text": `Chuck fact #${fact.id}: ${fact.fact}`
+      }
+  })
 }
