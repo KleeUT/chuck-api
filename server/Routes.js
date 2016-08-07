@@ -21,6 +21,6 @@ module.exports = (app, chuckFacts) => {
       {
         "token": request.body.token,
         "text": `Chuck fact #${fact.id}: ${fact.fact}`
-      }
-  })
+      });
+  });
 }
