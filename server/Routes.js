@@ -1,25 +1,26 @@
 'use strict'
-module.exports = (app, chuckFacts) => {
+module.exports = (app, chuckFacts, chuckMemes) => {
+
+
   app.get('/api/joke/random', (request, response) => {
     response.send({fact:chuckFacts.randomQuote()});
   });
 
   app.get('/slack/api/joke/random', (request, response) => {
     var token = request.query.token;
-    console.log(`${request.query.text}`);
     switch(request.query.text){
-      case "meme" :  memeResponse(response, token); break;
+      case "meme" :  randomMeme(response, token); break;
       default : randomJoke(response, token);   break;
     }
   });
 
-  var memeResponse = (response, token) =>{
+  var randomMeme = (response, token) =>{
     response.send({
       "token":token,
       "text":"Chuck meme! Haha! Funny!",
       "attachments":[{
         "fallback": "a meme of Chuck Norris, it's funny",
-        "image_url":"https://chuck-api.herokuapp.com/memes/swim.jpg"
+        "image_url":`https://chuck-api.herokuapp.com/memes/${chuckMemes.randomMeme()}`
       }]
     });
   }
