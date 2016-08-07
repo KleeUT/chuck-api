@@ -5,22 +5,28 @@ module.exports = (app, chuckFacts) => {
   });
 
   app.get('/slack/api/joke/random', (request, response) => {
-    var fact = chuckFacts.randomQuote();
-    response.send(
-      {
-        "token": request.query.token,
-        "text": `Chuck fact #${fact.id}: ${fact.fact}`
-      }
-    );
+    var token = request.query.token;
+    console.log(`${request.query.text}`);
+    switch(request.query.text){
+      case "meme" :  memeResponse(response, token); break;
+      default : randomJoke(response, token);   break;
+    }
   });
 
-  app.post('/slack/api/joke/random', (request, response) =>{
+  var memeResponse = (response, token) =>{
+    response.send({
+      "token":token,
+      "text":"",
+      "image_url":"https://chuck-api.herokuapp.com/memes/swim.jpg"
+    });
+  }
+
+  var randomJoke = (response, token) => {
     var fact = chuckFacts.randomQuote();
-    console.log(`${request.body.command} ${request.body.text}`)
     response.send(
       {
-        "token": request.body.token,
+        "token": token,
         "text": `Chuck fact #${fact.id}: ${fact.fact}`
       });
-  });
+  }
 }
