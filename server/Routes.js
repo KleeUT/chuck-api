@@ -16,7 +16,7 @@ module.exports = (app, chuckFacts) => {
   var memeResponse = (response, token) =>{
     response.send({
       "token":token,
-      "text":"",
+      "text":"Is there an image?",
       "image_url":"https://chuck-api.herokuapp.com/memes/swim.jpg"
     });
   }
