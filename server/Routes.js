@@ -12,8 +12,6 @@ module.exports = (app, chuckFacts, chuckMemes) => {
     var secret = process.env.chuckSlackSecret || "notSet";
     var code = request.query.code;
     console.log(`Request code ${code}`)
-    var code1 = request.body.code;
-    console.log(`bodyCode:${code1}`)
     http.request({
       host:" https://slack.com/api/oauth.access",
       port:80,
