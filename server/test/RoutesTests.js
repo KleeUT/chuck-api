@@ -15,7 +15,7 @@ describe("Routes", () => {
           });
 
         var calledBack = false;
-        fakeApp.paths["/api/joke/random"]({},{
+        fakeApp.paths["/api/joke/random"]({query:{token:"token", text:""}},{
           send:(json) =>{
             assert.deepEqual(json, { fact: 'quoteymcquotequote' })
             calledBack = true;
@@ -40,7 +40,7 @@ describe("Routes", () => {
         });
 
       var calledBack = false;
-      fakeApp.paths["/slack/api/joke/random"]({},{
+      fakeApp.paths["/slack/api/joke/random"]({query:{token:"token", text:""}},{
         send:(json) =>{
           assert.deepEqual(json, { text: 'quoteymcquotequote' })
           calledBack = true;

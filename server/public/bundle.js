@@ -146,7 +146,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-6' },
+	            { className: 'col-xs-12 col-md-6' },
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'btn btn-primary btn-lg', onClick: function onClick() {
@@ -157,16 +157,16 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-6' },
+	            { className: 'col-xs-12 col-md-6' },
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'https://slack.com/oauth/authorize?scope=incoming-webhook,commands&client_id=3358490050.67017692769' },
+	              { href: 'https://slack.com/oauth/authorize?scope=commands&client_id=3358490050.67017692769' },
 	              _react2.default.createElement('img', { alt: 'Add to Slack', height: '40', width: '139', src: 'https://platform.slack-edge.com/img/add_to_slack.png', srcset: 'https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x' })
 	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            null,
+	            { className: 'col-xs-12' },
 	            _react2.default.createElement(
 	              'h1',
 	              null,

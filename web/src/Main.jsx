@@ -52,17 +52,17 @@ var Blarg = class extends React.Component{
                 <h1>Chuck Norris Facts</h1>
                 <p style={style.smallText}>Scientifically proven by FCNRI (Fictionaly Chuck Norris Research Institue)</p>
                 </div>
-                <div className="col-sm-6">
+                <div className="col-xs-12 col-md-6">
                   <button className="btn btn-primary btn-lg" onClick={() => {
                       FactGetter(store);
                     }}>
                     Random Chuck Fact
                   </button>
                 </div>
-                <div className="col-sm-6">
-                  <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands&client_id=3358490050.67017692769"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a> 
+                <div className="col-xs-12 col-md-6">
+                  <a href="https://slack.com/oauth/authorize?scope=incoming-webhook,commands&client_id=3358490050.67017692769"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>
                 </div>
-                <div>
+                <div className="col-xs-12">
                   <h1> {this.state.factId ? `Chuck Norris Fact No. ${this.state.factId}` : ""}</h1>
                   <p style={style.largeText}>{this.state.fact}</p>
                 </div>
