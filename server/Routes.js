@@ -51,7 +51,7 @@ module.exports = (app, chuckFacts, chuckMemes) => {
     chuckFunction(response, text, token)
   });
 
-  var chuckFunction => (response, text, token){
+  var chuckFunction = (response, text, token) => {
     switch(text){
       case "help" :  response.send(helpMessage(token)); break;
       case "meme" :  response.send(randomMeme(token)); break;
