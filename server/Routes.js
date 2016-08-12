@@ -11,27 +11,53 @@ module.exports = (app, chuckFacts, chuckMemes) => {
     var client_id = "3358490050.67017692769";
     var secret = process.env.chuckSlackSecret || "notSet";
     var code = request.query.code;
-    console.log(`Request code ${code}`)
-    http.request({
-      host:" https://slack.com/api/oauth.access",
-      port:80,
-      client_id:client_id,
-      client_secret:secret,
-      code: code || code1
-    }, (res) => {
-        console.log(response);
+    var data = JSON.stringify({});
+
+    var options = {
+      host:"slack.com",
+      port:"443",
+      path:`/api/oauth.access?client_id=${client_id}&client_secret=${secret}&code=${code}`,
+      method:'GET',
+      headers: {
+        'Content-Length': Buffer.byteLength(data)
+      }
+    };
+
+    var request = https.request(options, (res) =>{
+      res.on('data', (chunk) =>{
+        console.log("Testing only remove this after success");
+        console.log(chunk.toString('ascii'));
+      });
     });
 
+    request.on('error', (err) => {
+      console.log("Error :(");
+      console.log(err);
+    });
+
+    request.write(data);
+    request.end();
+  });
+
+  app.post('/slack/api/joke/random', (request, response) => {
+    var token = request.body.token;
+    var text =  request.body.text;
+    chuckFunction(response, text, token)
   });
 
   app.get('/slack/api/joke/random', (request, response) => {
     var token = request.query.token;
-    switch(request.query.text){
+    var text =  request.query.text;
+    chuckFunction(response, text, token)
+  });
+
+  var chuckFunction => (response, text, token){
+    switch(text){
       case "help" :  response.send(helpMessage(token)); break;
       case "meme" :  response.send(randomMeme(token)); break;
       default : response.send(randomJoke(token));   break;
     }
-  });
+  };
 
   var helpMessage = (token) =>{
     return {
