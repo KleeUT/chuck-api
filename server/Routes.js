@@ -23,20 +23,23 @@ module.exports = (app, chuckFacts, chuckMemes) => {
       }
     };
 
-    var request = https.request(options, (res) =>{
+    var slackRequest = https.request(options, (res) =>{
       res.on('data', (chunk) =>{
         console.log("Testing only remove this after success");
         console.log(chunk.toString('ascii'));
       });
+      res.on('end', () => {
+        response.json({ok:true});
+      });
     });
 
-    request.on('error', (err) => {
+    slackRequest.on('error', (err) => {
       console.log("Error :(");
       console.log(err);
     });
 
-    request.write(data);
-    request.end();
+    slackRequest.write(data);
+    slackRequest.end();
   });
 
   app.post('/slack/api/joke/random', (request, response) => {
