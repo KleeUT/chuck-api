@@ -6,6 +6,7 @@ var morgan = require('morgan');
 var ChuckFacts = require('./ChuckFacts.js');
 var chuckFacts = new ChuckFacts();
 var Routes = require('./Routes.js');
+var InstallSlackRoute = require('./InstallSlackRoute.js');
 var ChuckMemes = require('./ChuckMemes.js')
 var chuckMemes = new ChuckMemes();
 
