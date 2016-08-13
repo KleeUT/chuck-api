@@ -15,18 +15,17 @@ module.exports = (app, chuckFacts, chuckMemes) => {
 
     var options = {
       host:"slack.com",
-      port:"443",
+      // port:"443",
       path:`/api/oauth.access?client_id=${client_id}&client_secret=${secret}&code=${code}`,
-      method:'GET',
-      headers: {
-        'Content-Length': Buffer.byteLength(data)
-      }
+      // method:'GET',
+      // headers: {
+        // 'Content-Length': Buffer.byteLength(data)
+      // }
     };
 
     var slackRequest = https.request(options, (res) =>{
       res.on('data', (chunk) =>{
-        console.log("Testing only remove this after success");
-        console.log(chunk.toString('ascii'));
+
       });
       res.on('end', () => {
         response.json({ok:true});
@@ -38,7 +37,7 @@ module.exports = (app, chuckFacts, chuckMemes) => {
       console.log(err);
     });
 
-    slackRequest.write(data);
+    // slackRequest.write(data);
     slackRequest.end();
   });
 
