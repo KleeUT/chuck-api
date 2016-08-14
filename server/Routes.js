@@ -12,6 +12,7 @@ module.exports = (app, chuckFacts, chuckMemes) => {
       var text =  request.body.text;
       chuckFunction(response, text, token)
     }else{
+      console.log("Post body empty");
       chuckFunction(response)
     }
   });
@@ -22,12 +23,14 @@ module.exports = (app, chuckFacts, chuckMemes) => {
       var text =  request.query.text;
       chuckFunction(response, text, token)
     }else{
+      console.log("Get query empty");
       chuckFunction(response)
     }
 
   });
 
   var chuckFunction = (response, text, token) => {
+    console.log(`Chuck called params: text:${text} token:${token}`);
     switch(text){
       case "help" :  response.send(helpMessage(token)); break;
       case "meme" :  response.send(randomMeme(token)); break;
