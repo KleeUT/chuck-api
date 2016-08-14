@@ -1,7 +1,7 @@
 'use strict'
 var express = require('express');
 var morgan = require('morgan');
-
+var bodyParser = require('body-parser')
 
 var ChuckFacts = require('./ChuckFacts.js');
 var chuckFacts = new ChuckFacts();
@@ -13,6 +13,7 @@ var chuckMemes = new ChuckMemes();
 var app = express();
 app.use(morgan('combined'));
 app.use(express.static('server/public'));
+app.use( bodyParser.json() );
 
 Routes(app, chuckFacts, chuckMemes);
 

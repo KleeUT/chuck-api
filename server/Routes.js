@@ -1,56 +1,30 @@
 'use strict'
 var https = require('https');
 module.exports = (app, chuckFacts, chuckMemes) => {
-
-
   app.get('/api/joke/random', (request, response) => {
     response.send({fact:chuckFacts.randomQuote()});
   });
 
-  app.get('/installslack', (request, response) => {
-    var client_id = "3358490050.67017692769";
-    var secret = process.env.chuckSlackSecret || "notSet";
-    var code = request.query.code;
-    var data = JSON.stringify({});
-
-    var options = {
-      host:"slack.com",
-      // port:"443",
-      path:`/api/oauth.access?client_id=${client_id}&client_secret=${secret}&code=${code}`,
-      // method:'GET',
-      // headers: {
-        // 'Content-Length': Buffer.byteLength(data)
-      // }
-    };
-
-    var slackRequest = https.request(options, (res) =>{
-      res.on('data', (chunk) =>{
-
-      });
-      res.on('end', () => {
-        response.json({ok:true});
-      });
-    });
-
-    slackRequest.on('error', (err) => {
-      console.log("Error :(");
-      console.log(err);
-    });
-
-    // slackRequest.write(data);
-    slackRequest.end();
-  });
 
   app.post('/slack/api/joke/random', (request, response) => {
-    var token = request.body.token;
-    var text =  request.body.text;
-    chuckFunction(response, text, token)
+    if(request.body){
+      var token = request.body.token;
+      var text =  request.body.text;
+      chuckFunction(response, text, token)
+    }else{
+      chuckFunction(response)
+    }
   });
 
   app.get('/slack/api/joke/random', (request, response) => {
-    var token = request.query.token;
-    var text =  request.query.text;
-    chuckFunction(response, text, token)
+    if(request.query){
+      var token = request.query.token;
+      var text =  request.query.text;
+      chuckFunction(response, text, token)
+    }else{
+      chuckFunction(response)
+    }
+
   });
 
   var chuckFunction = (response, text, token) => {
