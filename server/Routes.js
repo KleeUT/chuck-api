@@ -37,6 +37,7 @@ module.exports = (app, chuckFacts, chuckMemes) => {
 
   var helpMessage = (token) =>{
     return {
+      "response_type":"ephemeral",
       "token":token,
       "text":
         "/chuck [help|meme] \n" +
@@ -48,6 +49,7 @@ module.exports = (app, chuckFacts, chuckMemes) => {
 
   var randomMeme = (token) =>{
     return {
+      "response_type":"in_channel",
       "token":token,
       "text":"Chuck meme! Haha! Funny!",
       "attachments":[{
@@ -60,6 +62,7 @@ module.exports = (app, chuckFacts, chuckMemes) => {
   var randomJoke = (token) => {
     var fact = chuckFacts.randomQuote();
       return {
+        "response_type":"in_channel",
         "token": token,
         "text": `Chuck fact #${fact.id}: ${fact.fact}`
       };
