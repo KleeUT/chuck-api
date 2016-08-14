@@ -10,6 +10,7 @@ module.exports = (app, chuckFacts, chuckMemes) => {
     if(request.body){
       var token = request.body.token;
       var text =  request.body.text;
+      cosole.log(request.body);
       chuckFunction(response, text, token)
     }else{
       console.log("Post body empty");
