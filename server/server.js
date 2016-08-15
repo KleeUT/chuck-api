@@ -1,7 +1,7 @@
 'use strict'
 var express = require('express');
 var morgan = require('morgan');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
 
 var ChuckFacts = require('./ChuckFacts.js');
 var chuckFacts = new ChuckFacts();
@@ -10,12 +10,14 @@ var InstallSlackRoute = require('./InstallSlackRoute.js');
 var ChuckMemes = require('./ChuckMemes.js')
 var chuckMemes = new ChuckMemes();
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 var app = express();
 app.use(morgan('combined'));
 app.use(express.static('server/public'));
-app.use( bodyParser.json() );
 
-Routes(app, chuckFacts, chuckMemes);
+InstallSlackRoute(app);
+Routes(app, chuckFacts, chuckMemes, urlencodedParser);
 
 var port = process.env.PORT || 8081;
 
