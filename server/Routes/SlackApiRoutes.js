@@ -1,11 +1,5 @@
 'use strict'
-var https = require('https');
 module.exports = (app, chuckFacts, chuckMemes, urlencodedParser) => {
-  app.get('/api/joke/random', (request, response) => {
-    response.send({fact:chuckFacts.randomQuote()});
-  });
-
-
   app.post('/slack/api/joke/random', urlencodedParser, (request, response) => {
     if(request.body){
       var token = request.body.token;
@@ -16,18 +10,6 @@ module.exports = (app, chuckFacts, chuckMemes, urlencodedParser) => {
       console.log("Post body empty");
       chuckFunction(response)
     }
-  });
-
-  app.get('/slack/api/joke/random', (request, response) => {
-    if(request.query){
-      var token = request.query.token;
-      var text =  request.query.text;
-      chuckFunction(response, text, token)
-    }else{
-      console.log("Get query empty");
-      chuckFunction(response)
-    }
-
   });
 
   var chuckFunction = (response, text, token) => {

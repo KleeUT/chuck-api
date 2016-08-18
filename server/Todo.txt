@@ -1,0 +1,5 @@
+Tests around Routes functions.
+Minification for front end
+Tests for front end
+Style front end for mobile.
+Add chuck memes to ui

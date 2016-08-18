@@ -20,6 +20,10 @@ gulp.task('watch', () =>{
   gulp.watch(["./web/**/*"], []);
 });
 
+gulp.task('watch-test', () =>{
+  gulp.watch(["./**/test/*"], ['test']);
+});
+
 gulp.task('test', function() {
   return gulp.src(['web/test/*.js','server/test/*.js'], { read: false })
     .pipe(mocha({

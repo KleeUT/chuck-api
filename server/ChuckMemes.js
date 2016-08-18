@@ -1,7 +1,6 @@
 'use strict'
 class ChuckFacts {
   constructor() {
-    // super();
     this.memes = require('fs').readdirSync("./server/public/memes");
   }
 
