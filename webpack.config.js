@@ -3,6 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: './web/src/Main.jsx',
+  devtool: "source-map",
   output: { path: __dirname, filename: './server/public/bundle.js' },
   module: {
     loaders: [
@@ -16,6 +17,9 @@ module.exports = {
       }
     ]
   },
+  plugins:[
+    new webpack.optimize.UglifyJsPlugin({minimize:true})
+  ],
   externals:{
     "$":"$",
     "jQuery":"jQuery",

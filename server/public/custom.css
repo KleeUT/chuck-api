@@ -6,10 +6,6 @@ html {
   background-size: cover;
 }
 
-.mainPannel{
-    background-color:transparent;
-}
-
 #main{
   background: url(/background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
