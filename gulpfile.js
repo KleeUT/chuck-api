@@ -16,8 +16,12 @@ gulp.task('build', () => {
     pipe(gulp.dest('./'));
 });
 
-gulp.task('watch', () =>{
-  gulp.watch(["./web/**/*"], []);
+gulp.task('log', () =>{
+  console.log('log')
+})
+
+gulp.task('watch-client', () =>{
+  gulp.watch("./web/src/*", ['build']);
 });
 
 gulp.task('watch-test', () =>{

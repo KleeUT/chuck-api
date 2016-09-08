@@ -26,7 +26,7 @@ module.exports = [
 { id : "25", fact: "Death once had a near-Chuck-Norris experience." },
 { id : "26", fact: "The Four Horsemen of the Apocalypse actually live in Chuck Norris's nutsack." },
 { id : "27", fact: "Chuck Norris doesn't pop his collar, his shirts just get erections when they touch his body." },
-{ id : "28", fact: "When observing a Chuck Norris roundhouse kick in slow motion one finds that Chuck Norris actually rapes his victim in the ass, smokes a cigarette with Dennis Leary, and then roundhouse kicks them in the face." },
+{ id : "28", fact: "Chuck Norris can divide by zero." },
 { id : "29", fact: "Chuck Norris doesn't have hair on his testicles, because hair does not grow on steel." },
 { id : "30", fact: "Rudolph has a red nose because he got lippy and Chuck Norris roundhouse kicked him across the face several times." },
 { id : "31", fact: "Chuck Norris' dog is trained to pick up his own poop because Chuck Norris will not take shit from anyone." },

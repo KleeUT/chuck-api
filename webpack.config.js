@@ -18,10 +18,13 @@ module.exports = {
     ]
   },
   plugins:[
-    new webpack.optimize.UglifyJsPlugin({minimize:true})
+    new webpack.optimize.UglifyJsPlugin({minimize:false})
   ],
   externals:{
     "$":"$",
     "jQuery":"jQuery",
+    "react":"React",
+    "ReactDOM":"ReactDOM",
+    "redux":"Redux"
   }
 };

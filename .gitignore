@@ -2,5 +2,8 @@
 node_modules/**
 **/node_modules/**
 
+# source maps
+*.map.js
+
 # logs
 **.log
