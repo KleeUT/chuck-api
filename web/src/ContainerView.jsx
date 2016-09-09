@@ -10,7 +10,7 @@ var SlackButton = () => {
 
 var NewFactButton = (props) =>{
   return (<button className="btn btn-primary btn-lg btn-outline btn-block" onClick={props.onClick}>
-    Random Chuck Fact (new Button)
+    Random Chuck Fact
   </button>);
 }
 
