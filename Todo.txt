@@ -1,0 +1,7 @@
+-Tests around Routes functions.-
+-Minification for front end-
+-Style front end for mobile.-
+-Externalise React-
+
+Tests for front end
+Add chuck memes to ui
